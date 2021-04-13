@@ -8596,8 +8596,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Credits
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 59e88de9ef3317946b01b3bac72f5494, type: 2}
-  m_sharedMaterial: {fileID: 6612019567615470151, guid: 59e88de9ef3317946b01b3bac72f5494, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 03dc7c212d394f14fac20cf8d920b97b, type: 2}
+  m_sharedMaterial: {fileID: 207454362022160852, guid: 03dc7c212d394f14fac20cf8d920b97b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8660,7 +8660,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: -37.16191, z: -111.48561, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1227253779
@@ -11227,13 +11227,13 @@ MonoBehaviour:
 
     Chris Summer - Chris Summer
 
-    Nicole Hartman - game dev
+    Nicole Hartman - Game dev
 
-    chase
-    kosek - game dev'
+    Chase
+    Kosek - Game dev'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 59e88de9ef3317946b01b3bac72f5494, type: 2}
-  m_sharedMaterial: {fileID: 6612019567615470151, guid: 59e88de9ef3317946b01b3bac72f5494, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 03dc7c212d394f14fac20cf8d920b97b, type: 2}
+  m_sharedMaterial: {fileID: 207454362022160852, guid: 03dc7c212d394f14fac20cf8d920b97b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11409,10 +11409,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Controls/Credits
+  m_text: Controls and Credits
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 59e88de9ef3317946b01b3bac72f5494, type: 2}
-  m_sharedMaterial: {fileID: 6612019567615470151, guid: 59e88de9ef3317946b01b3bac72f5494, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 03dc7c212d394f14fac20cf8d920b97b, type: 2}
+  m_sharedMaterial: {fileID: 207454362022160852, guid: 03dc7c212d394f14fac20cf8d920b97b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11545,8 +11545,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: The James Games Team
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 59e88de9ef3317946b01b3bac72f5494, type: 2}
-  m_sharedMaterial: {fileID: 6612019567615470151, guid: 59e88de9ef3317946b01b3bac72f5494, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 03dc7c212d394f14fac20cf8d920b97b, type: 2}
+  m_sharedMaterial: {fileID: 207454362022160852, guid: 03dc7c212d394f14fac20cf8d920b97b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11609,7 +11609,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: -37.16191, z: -231.73521, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1575444791
@@ -11893,7 +11893,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.95900005}
-  m_AnchoredPosition: {x: -0.6000061, y: 0.40000153}
+  m_AnchoredPosition: {x: -0.6000061, y: -20}
   m_SizeDelta: {x: 0, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1684514824
@@ -11918,8 +11918,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Back
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 59e88de9ef3317946b01b3bac72f5494, type: 2}
-  m_sharedMaterial: {fileID: 6612019567615470151, guid: 59e88de9ef3317946b01b3bac72f5494, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 03dc7c212d394f14fac20cf8d920b97b, type: 2}
+  m_sharedMaterial: {fileID: 207454362022160852, guid: 03dc7c212d394f14fac20cf8d920b97b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11982,7 +11982,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1684514825
@@ -12443,8 +12443,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Movement Controls
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 59e88de9ef3317946b01b3bac72f5494, type: 2}
-  m_sharedMaterial: {fileID: 6612019567615470151, guid: 59e88de9ef3317946b01b3bac72f5494, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 03dc7c212d394f14fac20cf8d920b97b, type: 2}
+  m_sharedMaterial: {fileID: 207454362022160852, guid: 03dc7c212d394f14fac20cf8d920b97b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -12507,7 +12507,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: -37.16191, z: -111.48561, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1987232574
