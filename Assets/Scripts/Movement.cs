@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
    public float moveSpeed;
    public LayerMask solidObjectsLayer;
+   public LayerMask battleTrigger;
    public bool isMoving;
    private Vector2 input;
    private Animator animator;
+   SavePlayerPos playerPosData;
+
 
    private void Awake()
    {
        animator = GetComponent<Animator>();
+       playerPosData = FindObjectOfType<SavePlayerPos>();
+       playerPosData.PlayerPosLoad();
    }
 
    private void Update()
@@ -51,6 +57,7 @@ public class Movement : MonoBehaviour
        }
        transform.position = targetPos;
        isMoving = false;
+       CheckForEncounters();
    }
 
    private bool isWalkable(Vector3 targetPos)
@@ -61,6 +68,19 @@ public class Movement : MonoBehaviour
        }else
        {
             return true;
+       }
+   }
+
+   private void CheckForEncounters()
+   {
+       if (Physics2D.OverlapCircle(transform.position, 0.2f, battleTrigger) != null)
+       {
+           if (Random.Range(1,101) <= 10)
+           {
+               Debug.Log("Encountered Battle.");
+               playerPosData.PlayerPosSave();
+               SceneManager.LoadScene("BattleScene");
+           }
        }
    }
 }

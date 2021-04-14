@@ -70,9 +70,14 @@ public class FighterStats : MonoBehaviour, IComparable
         if(health <= 0)
         {
             dead = true;
-            gameObject.tag = "Dead";
+            //gameObject.tag = "Dead";
+            GameControllerObj.GetComponent<GameController>().battleText.gameObject.SetActive(true);
+            GameControllerObj.GetComponent<GameController>().battleText.text = "You Won!";
             Destroy(healthFill);
             Destroy(gameObject);
+            //Doesn't work need a sleep and a victory message
+            //System.Threading.Thread.Sleep(10000);
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Tedshire");
         } else if (damage > 0)
         {
             xNewHealthScale = healthScale.x * (health / startHealth);
