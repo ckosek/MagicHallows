@@ -69,10 +69,16 @@ public class FighterStats : MonoBehaviour, IComparable
 
         if(health <= 0)
         {
-            dead = true;
+            //dead = true;
             //gameObject.tag = "Dead";
-            GameControllerObj.GetComponent<GameController>().battleText.gameObject.SetActive(true);
-            GameControllerObj.GetComponent<GameController>().battleText.text = "You Won!";
+            if(gameObject.tag == "Hero")
+            {
+                Debug.Log("You lose");
+            }
+            else
+            {
+                Debug.Log("You win");
+            }
             Destroy(healthFill);
             Destroy(gameObject);
             //Doesn't work need a sleep and a victory message

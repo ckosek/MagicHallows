@@ -8,10 +8,12 @@ public class Movement : MonoBehaviour
    public float moveSpeed;
    public LayerMask solidObjectsLayer;
    public LayerMask battleTrigger;
+   public LayerMask blockedTrigger;
    public bool isMoving;
    private Vector2 input;
    private Animator animator;
    SavePlayerPos playerPosData;
+   public float PerChance;
 
 
    private void Awake()
@@ -75,12 +77,19 @@ public class Movement : MonoBehaviour
    {
        if (Physics2D.OverlapCircle(transform.position, 0.2f, battleTrigger) != null)
        {
-           if (Random.Range(1,101) <= 10)
+           if (Random.Range(1,101) <= PerChance)
            {
                Debug.Log("Encountered Battle.");
                playerPosData.PlayerPosSave();
                SceneManager.LoadScene("BattleScene");
            }
        }
+       if (Physics2D.OverlapCircle(transform.position, 0.2f, blockedTrigger) != null)
+       {
+            Debug.Log("Encountered Battle.");
+            playerPosData.PlayerPosSave();
+            SceneManager.LoadScene("BattleScene");
+       }
    }
+
 }
