@@ -55,7 +55,7 @@ public class GameController : MonoBehaviour
             {
                 //Debug.Log("HELP");
                 var random = new System.Random();
-                var list = new List<string>{ "Hello there","This guy doesn't quit","What now?","Ouch", "I can't wait to tell Mr. South about this", "...", "Not again", "But what about the Economy", "I can do this", "All this fighting is making me hungry", "Do you think Wendy's is still open"};
+                var list = new List<string>{ "Hello there","This guy doesn't quit","What now?","Ouch", "I can't wait to tell Mr. South about this", "...", "Not again", "But what about the Economy", "I can do this", "All this fighting is making me hungry", "Do you think Wendy's is still open", "What the", "Wanna see a magic trick?"};
                 int index = random.Next(list.Count);
                 heroComments.text = list[index];
                 this.battleMenu.SetActive(true);

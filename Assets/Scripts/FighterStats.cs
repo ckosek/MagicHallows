@@ -10,6 +10,9 @@ public class FighterStats : MonoBehaviour, IComparable
     private Animator animator;
 
     [SerializeField]
+    private GameObject Win;
+
+    [SerializeField]
     private GameObject healthFill;
 
     [SerializeField]
@@ -24,6 +27,8 @@ public class FighterStats : MonoBehaviour, IComparable
     public float speed;
     public float experience;
     public float magicRefill;
+    public float healthRefill;
+    public string SceneBefore;
 
     private float startHealth;
     private float startMagic;
@@ -74,16 +79,16 @@ public class FighterStats : MonoBehaviour, IComparable
             if(gameObject.tag == "Hero")
             {
                 Debug.Log("You lose");
+                UnityEngine.SceneManagement.SceneManager.LoadScene("Game Over");
             }
             else
             {
                 Debug.Log("You win");
+                Win.SetActive(true);
+                UnityEngine.SceneManagement.SceneManager.LoadScene(SceneBefore);
             }
-            Destroy(healthFill);
-            Destroy(gameObject);
-            //Doesn't work need a sleep and a victory message
-            //System.Threading.Thread.Sleep(10000);
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Tedshire");
+            //Destroy(healthFill);
+            //Destroy(gameObject);
         } else if (damage > 0)
         {
             xNewHealthScale = healthScale.x * (health / startHealth);
@@ -117,6 +122,22 @@ public class FighterStats : MonoBehaviour, IComparable
         }
     }
 
+    public void Heal()
+    {
+        if(health + 10 < startHealth)
+        {
+            health = health + healthRefill;
+            xNewHealthScale = healthScale.x * (health / startHealth);
+            healthFill.transform.localScale = new Vector2(xNewHealthScale, healthScale.y);
+        }
+        else
+        {
+            health = startHealth;
+            xNewHealthScale = healthScale.x * (health / startHealth);
+            healthFill.transform.localScale = new Vector2(xNewHealthScale, healthScale.y);
+        }
+    }
+
     public bool GetDead()
     {
         return dead;
@@ -136,7 +157,7 @@ public class FighterStats : MonoBehaviour, IComparable
         int nex = nextActTurn.CompareTo(((FighterStats)otherStats).nextActTurn);
         return nex;
     }
-
+    
 }
 
 

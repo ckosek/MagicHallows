@@ -8,7 +8,7 @@ public class Menu : MonoBehaviour
     public Animator transition;
     public float transitionTime = 2f;
     SavePlayerPos playerPosData;
-    
+
     // Start is called before the first frame update
     public void Quit()
     {
@@ -36,4 +36,18 @@ public class Menu : MonoBehaviour
         playerPosData.PlayerPosSave();
 
    }
+
+   public IEnumerator WaitFor(float time)
+   {
+       yield return new WaitForSeconds(time);
+   }
+
+    public void GameOver()
+   {
+       PlayerPrefs.DeleteAll();
+       StartCoroutine(LoadLevel("Main Menu"));
+       playerPosData = FindObjectOfType<SavePlayerPos>();
+       //SceneManager.LoadScene("TedShire");
+   }
+ 
 }
