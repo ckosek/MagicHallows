@@ -15,6 +15,9 @@ public class FighterAction : MonoBehaviour
     private GameObject rangePrefab;
 
     [SerializeField]
+    private GameObject specialPrefab;
+
+    [SerializeField]
     private Sprite faceIcon;
 
     private GameObject currentAttack;
@@ -38,9 +41,15 @@ public class FighterAction : MonoBehaviour
         } else if (btn.CompareTo("range") == 0)
         {
             rangePrefab.GetComponent<AttackScript>().Attack(victim);
-        } else
+
+        } else if (btn.CompareTo("heal") == 0)
         {
-            Debug.Log("Run");
+            specialPrefab.GetComponent<AttackScript>().Heal(hero);
+
+        }else
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Tedshire");
+            //specialPrefab.GetComponent<AttackScript>().Heal(hero);
         }
     }
 }

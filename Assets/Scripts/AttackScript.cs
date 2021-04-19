@@ -57,6 +57,13 @@ public class AttackScript : MonoBehaviour
         }
     }
 
+    public void Heal(GameObject owner)
+    {
+        attackerStats = owner.GetComponent<FighterStats>();
+        attackerStats.Heal();
+        attackerStats.updateMagicFill(magicCost);
+    }
+
     void SkipTurnContinueGame()
     {
         GameObject.Find("GameControllerObject").GetComponent<GameController>().NextTurn();

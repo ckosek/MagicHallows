@@ -84,9 +84,9 @@ public class Movement : MonoBehaviour
                SceneManager.LoadScene("BattleScene");
            }
        }
-       if (Physics2D.OverlapCircle(transform.position, 0.2f, blockedTrigger) != null)
+       else if (Physics2D.OverlapCircle(transform.position, 0.2f, blockedTrigger) != null)
        {
-            Debug.Log("Encountered Battle.");
+            Debug.Log("Encountered Blocked Battle.");
             playerPosData.PlayerPosSave();
             SceneManager.LoadScene("BattleScene");
        }
