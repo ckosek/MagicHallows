@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
    public LayerMask solidObjectsLayer;
    public LayerMask battleTrigger;
    public LayerMask blockedTrigger;
+   public LayerMask TransitionTrigger;
    public bool isMoving;
    private Vector2 input;
    private Animator animator;
@@ -87,8 +88,18 @@ public class Movement : MonoBehaviour
        else if (Physics2D.OverlapCircle(transform.position, 0.2f, blockedTrigger) != null)
        {
             Debug.Log("Encountered Blocked Battle.");
+            string scene;
+            scene = GameObject.Find("EncounterFoSho").GetComponent<SceneVars>().SceneName;
             playerPosData.PlayerPosSave();
-            SceneManager.LoadScene("BattleScene");
+            SceneManager.LoadScene(scene);
+       }
+       else if (Physics2D.OverlapCircle(transform.position, 0.2f, TransitionTrigger) != null)
+       {
+            Debug.Log("Encountered Transition.");
+            string scene;
+            scene = GameObject.Find("Transition").GetComponent<SceneVars>().SceneName;
+            playerPosData.PlayerPosSave();
+            SceneManager.LoadScene(scene);
        }
    }
 
