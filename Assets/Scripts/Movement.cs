@@ -16,6 +16,8 @@ public class Movement : MonoBehaviour
    SavePlayerPos playerPosData;
    public float PerChance;
 
+   private Vector3 targetPos;
+
 
    private void Awake()
    {
@@ -38,7 +40,7 @@ public class Movement : MonoBehaviour
            {
                animator.SetFloat("moveX",input.x);
                animator.SetFloat("moveY",input.y);
-               var targetPos = transform.position;
+               targetPos = transform.position;
                targetPos.x += input.x;
                targetPos.y += input.y;
                if(isWalkable(targetPos))
@@ -65,7 +67,7 @@ public class Movement : MonoBehaviour
 
    private bool isWalkable(Vector3 targetPos)
    {
-       if(Physics2D.OverlapCircle(targetPos, 0.2f, solidObjectsLayer) != null)
+       if(Physics2D.OverlapCircle(targetPos + new Vector3(0, 0.5f, 0), 0.2f, solidObjectsLayer) != null)
        {
            return false;
        }else
@@ -101,6 +103,12 @@ public class Movement : MonoBehaviour
             playerPosData.PlayerPosSave();
             SceneManager.LoadScene(scene);
        }
+   }
+
+   void OnDrawGizmosSelected() {
+       Debug.Log("something");
+       Gizmos.color = Color.red;
+       Gizmos.DrawSphere(targetPos - new Vector3(0, 0.5f, 0), 0.2f);
    }
 
 }
