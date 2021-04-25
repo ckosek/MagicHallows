@@ -100,7 +100,11 @@ public class Movement : MonoBehaviour
             Debug.Log("Encountered Transition.");
             string scene;
             scene = GameObject.Find("Transition").GetComponent<SceneVars>().SceneName;
-            playerPosData.PlayerPosSave();
+            //playerPosData.PlayerPosSave();
+            if (scene == "SummerIsles")
+                playerPosData.PlayerPosSet(4.5f, 0f);
+            else if (scene == "TedShire")
+                playerPosData.PlayerPosSet(-49.5f, -57f);
             SceneManager.LoadScene(scene);
        }
    }
