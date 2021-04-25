@@ -78,19 +78,23 @@ public class Movement : MonoBehaviour
 
    private void CheckForEncounters()
    {
+       string scene;
        if (Physics2D.OverlapCircle(transform.position, 0.2f, battleTrigger) != null)
        {
            if (Random.Range(1,101) <= PerChance)
            {
                Debug.Log("Encountered Battle.");
                playerPosData.PlayerPosSave();
-               SceneManager.LoadScene("BattleScene");
+               scene = GameObject.Find("EncounterChance").GetComponent<SceneVars>().SceneName;
+               if (scene == "SummerIsles")
+                    SceneManager.LoadScene("BattleSceneBat");
+               else
+                    SceneManager.LoadScene("BattleScene");
            }
        }
        else if (Physics2D.OverlapCircle(transform.position, 0.2f, blockedTrigger) != null)
        {
             Debug.Log("Encountered Blocked Battle.");
-            string scene;
             scene = GameObject.Find("EncounterFoSho").GetComponent<SceneVars>().SceneName;
             playerPosData.PlayerPosSave();
             SceneManager.LoadScene(scene);
@@ -98,7 +102,6 @@ public class Movement : MonoBehaviour
        else if (Physics2D.OverlapCircle(transform.position, 0.2f, TransitionTrigger) != null)
        {
             Debug.Log("Encountered Transition.");
-            string scene;
             scene = GameObject.Find("Transition").GetComponent<SceneVars>().SceneName;
             //playerPosData.PlayerPosSave();
             if (scene == "SummerIsles")
