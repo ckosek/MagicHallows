@@ -26,7 +26,7 @@ public class SavePlayerPos : MonoBehaviour
     {
         PlayerPrefs.SetFloat("p_x", player.transform.position.x);
         PlayerPrefs.SetFloat("p_y", player.transform.position.y);
-        Debug.Log(player.transform.position.x);
+        //Debug.Log(player.transform.position.x);
         PlayerPrefs.SetInt("Saved", 1);
         PlayerPrefs.Save();
     }
@@ -35,6 +35,14 @@ public class SavePlayerPos : MonoBehaviour
     public void PlayerPosLoad()
     {
         PlayerPrefs.SetInt("TimeToLoad",1);
+        PlayerPrefs.Save();
+    }
+
+    public void PlayerPosSet(float p_x, float p_y)
+    {
+        PlayerPrefs.SetFloat("p_x", p_x);
+        PlayerPrefs.SetFloat("p_y", p_y);
+        PlayerPrefs.SetInt("Saved", 1);
         PlayerPrefs.Save();
     }
 }

@@ -48,7 +48,9 @@ public class FighterAction : MonoBehaviour
 
         }else
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Tedshire");
+            //UnityEngine.SceneManagement.SceneManager.LoadScene("Tedshire");
+            FighterStats f = victim.GetComponent<FighterStats>();
+            UnityEngine.SceneManagement.SceneManager.LoadScene(f.SceneBefore);
             //specialPrefab.GetComponent<AttackScript>().Heal(hero);
         }
     }
