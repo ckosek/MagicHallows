@@ -85,11 +85,16 @@ public class Movement : MonoBehaviour
            {
                Debug.Log("Encountered Battle.");
                playerPosData.PlayerPosSave();
+               int randomNum;
+               randomNum = Random.Range(1,101);
                scene = GameObject.Find("EncounterChance").GetComponent<SceneVars>().SceneName;
                if (scene == "SummerIsles")
                     SceneManager.LoadScene("BattleSceneBat");
-               else
-                    SceneManager.LoadScene("BattleScene");
+               else if (scene == "TedShire")
+                    if (randomNum <= 20)
+                        SceneManager.LoadScene("BattleScene");
+                    else if (randomNum > 20)
+                        SceneManager.LoadScene("BattleSceneBoar");
            }
        }
        else if (Physics2D.OverlapCircle(transform.position, 0.2f, blockedTrigger) != null)
