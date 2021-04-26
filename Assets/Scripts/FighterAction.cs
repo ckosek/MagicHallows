@@ -7,6 +7,7 @@ public class FighterAction : MonoBehaviour
 {
     private GameObject hero;
     private GameObject enemy;
+    private GameObject display;
 
     [SerializeField]
     private GameObject meleePrefab;
@@ -21,14 +22,17 @@ public class FighterAction : MonoBehaviour
     private Sprite faceIcon;
 
     private GameObject currentAttack;
-    
+
     void Awake()
     {
         hero = GameObject.FindGameObjectWithTag("Hero");
         enemy = GameObject.FindGameObjectWithTag("Enemy");
+        display = GameObject.Find("ActionMenu");
     }
+
     public void SelectAttack(string btn)
     {
+        display.SetActive(false);
         GameObject victim = hero;
         if (tag == "Hero")
         {
@@ -52,5 +56,9 @@ public class FighterAction : MonoBehaviour
             FighterStats f = victim.GetComponent<FighterStats>();
             UnityEngine.SceneManagement.SceneManager.LoadScene(f.SceneBefore);
         }
+    }
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(2);
     }
 }

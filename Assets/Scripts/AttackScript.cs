@@ -5,6 +5,7 @@ using UnityEngine;
 public class AttackScript : MonoBehaviour
 {
     public GameObject owner;
+    private GameObject display;
 
     [SerializeField]
     private string animationName;
@@ -74,6 +75,11 @@ public class AttackScript : MonoBehaviour
 
     void SkipTurnContinueGame()
     {
+        //display = GameObject.Find("ActionMenu");
+        //if (!display.activeSelf)
+        //{
+        //    display.SetActive(true);
+        //}
         GameObject.Find("GameControllerObject").GetComponent<GameController>().NextTurn();
     }
 }

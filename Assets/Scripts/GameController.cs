@@ -35,7 +35,7 @@ public class GameController : MonoBehaviour
         fighterStats.Add(currentEnemyStats);
 
         fighterStats.Sort();
-        
+        this.battleMenu.SetActive(true);
 
         NextTurn();
     }
