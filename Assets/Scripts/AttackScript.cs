@@ -60,8 +60,16 @@ public class AttackScript : MonoBehaviour
     public void Heal(GameObject owner)
     {
         attackerStats = owner.GetComponent<FighterStats>();
-        attackerStats.Heal();
-        attackerStats.updateMagicFill(magicCost);
+        if (attackerStats.magic >= magicCost)
+        {
+            attackerStats = owner.GetComponent<FighterStats>();
+            attackerStats.Heal();
+            attackerStats.updateMagicFill(magicCost);
+        }
+        else
+        {
+            Invoke("SkipTurnContinueGame", 2);
+        }
     }
 
     void SkipTurnContinueGame()

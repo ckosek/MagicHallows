@@ -46,12 +46,11 @@ public class FighterAction : MonoBehaviour
         {
             specialPrefab.GetComponent<AttackScript>().Heal(hero);
 
-        }else
+        }else if(btn.CompareTo("run") == 0)
         {
             //UnityEngine.SceneManagement.SceneManager.LoadScene("Tedshire");
             FighterStats f = victim.GetComponent<FighterStats>();
             UnityEngine.SceneManagement.SceneManager.LoadScene(f.SceneBefore);
-            //specialPrefab.GetComponent<AttackScript>().Heal(hero);
         }
     }
 }
