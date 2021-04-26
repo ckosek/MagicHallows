@@ -89,7 +89,12 @@ public class Movement : MonoBehaviour
                randomNum = Random.Range(1,101);
                scene = GameObject.Find("EncounterChance").GetComponent<SceneVars>().SceneName;
                if (scene == "SummerIsles")
-                    SceneManager.LoadScene("BattleSceneBat");
+                    if (randomNum <= 30)
+                        SceneManager.LoadScene("BattleSceneLizard");
+                    else if (randomNum > 30 && randomNum < 95)
+                        SceneManager.LoadScene("BattleSceneBat");
+                    else if (randomNum >= 95)
+                        SceneManager.LoadScene("BattleSceneDragon");
                else if (scene == "TedShire")
                     if (randomNum <= 20)
                         SceneManager.LoadScene("BattleScene");
