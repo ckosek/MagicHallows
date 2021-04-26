@@ -24,7 +24,10 @@ public class MakeButton : MonoBehaviour
         } else if (btn.CompareTo("RangeBtn") == 0)
         {
             hero.GetComponent<FighterAction>().SelectAttack("range");
-        } else
+        } else if (btn.CompareTo("HealBtn") == 0)
+        {
+            hero.GetComponent<FighterAction>().SelectAttack("heal");
+        }else
         {
             hero.GetComponent<FighterAction>().SelectAttack("run");
         }

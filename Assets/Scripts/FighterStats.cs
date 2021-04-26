@@ -136,6 +136,7 @@ public class FighterStats : MonoBehaviour, IComparable
             xNewHealthScale = healthScale.x * (health / startHealth);
             healthFill.transform.localScale = new Vector2(xNewHealthScale, healthScale.y);
         }
+        Invoke("ContinueGame", 2);
     }
 
     public bool GetDead()
