@@ -49,5 +49,11 @@ public class Menu : MonoBehaviour
        playerPosData = FindObjectOfType<SavePlayerPos>();
        //SceneManager.LoadScene("TedShire");
    }
+
+    public void BackToMenu()
+    {
+        StartCoroutine(LoadLevel("Main Menu"));
+        playerPosData = FindObjectOfType<SavePlayerPos>();
+    }
  
 }
