@@ -10,9 +10,10 @@ public class Movement : MonoBehaviour
    public LayerMask battleTrigger;
    public LayerMask blockedTrigger;
    public LayerMask TransitionTrigger;
+   public LayerMask DialogueTrigger;
    public bool isMoving;
    private Vector2 input;
-   private Animator animator;
+   public Animator animator;
    SavePlayerPos playerPosData;
    public float PerChance;
 
@@ -79,6 +80,8 @@ public class Movement : MonoBehaviour
    private void CheckForEncounters()
    {
        string scene;
+        Collider2D [] result = new Collider2D[5];
+        System.Array.Clear(result, 0, 5);
        if (Physics2D.OverlapCircle(transform.position, 0.2f, battleTrigger) != null)
        {
            if (Random.Range(1,101) <= PerChance)
@@ -89,17 +92,21 @@ public class Movement : MonoBehaviour
                randomNum = Random.Range(1,101);
                scene = GameObject.Find("EncounterChance").GetComponent<SceneVars>().SceneName;
                if (scene == "SummerIsles")
+               {
                     if (randomNum <= 30)
                         SceneManager.LoadScene("BattleSceneLizard");
                     else if (randomNum > 30 && randomNum < 95)
                         SceneManager.LoadScene("BattleSceneBat");
                     else if (randomNum >= 95)
                         SceneManager.LoadScene("BattleSceneDragon");
-               else if (scene == "TedShire")
+               }
+               if (scene == "TedShire")
+               {
                     if (randomNum <= 20)
                         SceneManager.LoadScene("BattleScene");
                     else if (randomNum > 20)
                         SceneManager.LoadScene("BattleSceneBoar");
+               }
            }
        }
        else if (Physics2D.OverlapCircle(transform.position, 0.2f, blockedTrigger) != null)
@@ -120,10 +127,16 @@ public class Movement : MonoBehaviour
                 playerPosData.PlayerPosSet(-49.5f, -57f);
             SceneManager.LoadScene(scene);
        }
+       else if (Physics2D.OverlapCircle(transform.position, 0.2f, DialogueTrigger) != null)
+       {
+           Physics2D.OverlapCircle(gameObject.transform.position, 0.2f,  new ContactFilter2D(), result);
+           result[0].gameObject.GetComponent<DialogueController>().Interact();
+           //Debug.Log(dialogue);
+       }
    }
 
    void OnDrawGizmosSelected() {
-       Debug.Log("something");
+       //Debug.Log("something");
        Gizmos.color = Color.red;
        Gizmos.DrawSphere(targetPos - new Vector3(0, 0.5f, 0), 0.2f);
    }
