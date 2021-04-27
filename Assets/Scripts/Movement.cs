@@ -51,7 +51,19 @@ public class Movement : MonoBehaviour
            }
        }
        animator.SetBool("isMoving", isMoving);
-   }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Collider2D[] result = new Collider2D[5];
+            System.Array.Clear(result, 0, 5);
+            if (Physics2D.OverlapCircle(transform.position, 0.2f, DialogueTrigger) != null)
+            {
+                Physics2D.OverlapCircle(gameObject.transform.position, 0.2f, new ContactFilter2D(), result);
+                result[0].gameObject.GetComponent<DialogueController>().Interact();
+                //Debug.Log(dialogue);
+            }
+        }
+    }
 
    IEnumerator Move(Vector3 targetPos)
    {
@@ -127,12 +139,12 @@ public class Movement : MonoBehaviour
                 playerPosData.PlayerPosSet(-49.5f, -57f);
             SceneManager.LoadScene(scene);
        }
-       else if (Physics2D.OverlapCircle(transform.position, 0.2f, DialogueTrigger) != null)
-       {
-           Physics2D.OverlapCircle(gameObject.transform.position, 0.2f,  new ContactFilter2D(), result);
-           result[0].gameObject.GetComponent<DialogueController>().Interact();
-           //Debug.Log(dialogue);
-       }
+       //else if (Physics2D.OverlapCircle(transform.position, 0.2f, DialogueTrigger) != null)
+       //{
+       //    Physics2D.OverlapCircle(gameObject.transform.position, 0.2f,  new ContactFilter2D(), result);
+       //    result[0].gameObject.GetComponent<DialogueController>().Interact();
+       //    //Debug.Log(dialogue);
+       //}
    }
 
    void OnDrawGizmosSelected() {
