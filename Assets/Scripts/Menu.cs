@@ -52,7 +52,8 @@ public class Menu : MonoBehaviour
 
     public void BackToMenu()
     {
-        SceneManager.LoadScene("Main Menu");
+        StartCoroutine(LoadLevel("Main Menu"));
+        playerPosData = FindObjectOfType<SavePlayerPos>();
     }
  
 }
