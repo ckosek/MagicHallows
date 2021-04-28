@@ -17,9 +17,12 @@ public class GameController : MonoBehaviour
 
     public TextMeshProUGUI heroComments;
 
+    public List<string> list;
+
     private void Awake()
     {
         battleMenu = GameObject.Find("ActionMenu");
+        list = null;
     }
     void Start()
     {
@@ -55,13 +58,20 @@ public class GameController : MonoBehaviour
             {
                 //Debug.Log("HELP");
                 var random = new System.Random();
-                var list = new List<string>{ "Hello there","This guy doesn't quit","What now?","Ouch", "I can't wait to tell Mr. South about this", "...", "Not again", "But what about the Economy", "I can do this", "All this fighting is making me hungry", "Do you think Wendy's is still open", "What the", "Wanna see a magic trick?"};
+                if (currentFighterStats.SceneBefore == "The End" && list == null)
+                {
+                    list = new List<string>{"Is this guy wearing Crocs?", "He has an 8 pack...", "Lazers?!?!", "I wonder what Shampoo he uses", "I have to end this.", "Where is his shirt", "That's all he's got?", "So this is THE Chris Summer", "Ouch", "He is too powerful", "This is a strategy game", "He keeps insulting someone named Chase", "What even is a Loft Bed"};
+                } else if (list == null)
+                {
+                    list = new List<string>{ "Hello there","This guy doesn't quit","What now?","Ouch", "I can't wait to tell Mr. South about this", "...", "Not again", "But what about the Economy", "I can do this", "All this fighting is making me hungry", "Do you think Wendy's is still open", "What the", "Wanna see a magic trick?"};
+                }
                 int index = random.Next(list.Count);
                 heroComments.text = list[index];
                 this.battleMenu.SetActive(true);
             } else
             {
                 this.battleMenu.SetActive(false);
+
                 string attackType = UnityEngine.Random.Range(0, 2) == 1 ? "melee" : "range";
                 currentUnit.GetComponent<FighterAction>().SelectAttack(attackType);
             }
